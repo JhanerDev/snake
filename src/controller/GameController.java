@@ -34,26 +34,28 @@ public class GameController implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT){
-            if(this.validMove(snake.getDir(),Direction.WEST)){
-                snake.setDir(Direction.WEST);
-            }
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP){
-            if(this.validMove(snake.getDir(),Direction.NORTH)){
-                snake.setDir(Direction.NORTH);
-            }
-        }
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT){
-            if(this.validMove(snake.getDir(),Direction.EAST)){
-                snake.setDir(Direction.EAST);
-            }
-        } 
-        if (e.getKeyCode() == KeyEvent.VK_DOWN){
-            if(this.validMove(snake.getDir(),Direction.SOUTH)){
-                snake.setDir(Direction.SOUTH);
-            }
-        }    
+        switch(e.getKeyCode()){
+            case KeyEvent.VK_LEFT:
+                if(this.validMove(snake.getDir(),Direction.WEST)){
+                    snake.setDir(Direction.WEST);
+                }
+                break;
+            case KeyEvent.VK_UP:
+                if(this.validMove(snake.getDir(),Direction.NORTH)){
+                    snake.setDir(Direction.NORTH);
+                }
+                break;
+            case  KeyEvent.VK_RIGHT:
+                if(this.validMove(snake.getDir(),Direction.EAST)){
+                    snake.setDir(Direction.EAST);
+                }
+                break;
+            case KeyEvent.VK_DOWN:
+                if(this.validMove(snake.getDir(),Direction.SOUTH)){
+                    snake.setDir(Direction.SOUTH);
+                }
+                break;
+        }  
     }
 
     public boolean validMove(Direction dir_snake, Direction dir_pressed){
